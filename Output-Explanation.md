@@ -25,5 +25,5 @@ This is the conclusion section of the document. You can link to this section usi
 To easily navigate between sections, you can use the following links:
 
 * [Section 1](#section-1)
-* [Section 2](#section-2)
+* [Section 2](#section-2-main-content)
 * [Section 3](#section-3)

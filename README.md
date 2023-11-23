@@ -9,3 +9,5 @@ CATS offers a diverse range of distributions, including realistic, economically 
 For detailed information about CATS and its capabilities, visit CATS website.
 
 Follow the setup instructions corresponding to your operating system for a seamless experience. Let's get started!
+
+- [Linux](/Setup-Linux.md)

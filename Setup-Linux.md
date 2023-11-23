@@ -33,12 +33,11 @@ Use
 	ls
 
 to list all files. 
-If ``cats`` exists (not ``cats.exe``) the compilation was successful and you can continue with Step 4.
+If ``cats`` exists (not ``cats.exe``) the compilation was successful and you can continue with [Step 4](#step-4-test-the-execution-of-the-program).
 
-If errors occur, proceed to [Step 3](#step-3).
-[go to heading](#heading)
+If errors occur, proceed to [Step 3](#step-3-make-the-program-compilable).
 
-### Step 3: Make the program combilable
+### Step 3: Make the program compilable
 
 There are two known problems which cause problems when compiling the program.
 
@@ -69,7 +68,7 @@ Locate and comment out the line containing the double definition of `max` by add
 
 	#define max(a,b) (a>b?a:b)
 
-Save the changes and either repeat Step 2 or proceed with Step 3.2 first.
+Save the changes and either repeat [Step 2](#step-2-test-compiling-the-program) or proceed with [Step 3.2](#step-32-compile-without-using-ibm-cplex) first.
 
 
 #### Step 3.2: Compile without using IBM CPLEX
@@ -90,7 +89,7 @@ Make the following changes:
 1. Comment out the lines 10-13 and 16-17 by adding a ``#`` before.
 2. Uncomment the lines 23-25 and 29-32 by removing the ``#`` on first position.
 
-Save the changes and retry Step 2.
+Save the changes and retry [Step 2](#step-2-test-compiling-the-program).
 
 
 ### Step 4: Test the execution of the program
@@ -101,7 +100,7 @@ Test the execution of the program with a random generation of test files:
 
 	./cats -d arbitrary -goods 5 -bids 10     
 
-If the output resembles the provided example, the setup was successful and you can continue with ``Output-Explanation.md``:
+If the output resembles the provided example, the setup was successful and you can continue with the [Output Explanation](/Output-Explanation.md)
 
 	Number of non-dominated bids: 10  Number of bidders: 12
 	CATS running 1 of 1....
