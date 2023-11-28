@@ -93,7 +93,7 @@ By default, CATS uses IBM CPLEX, so we'll guide you through changing the configu
 
 
 Rename the existing "Makefile" in ``CATS_HOME`` to "Makefile_old".
-Download the provided [Makefile](/Ressources/Makefile-Root-Windows), move it to ``CATS_HOME`` and rename it to "Makefile".
+Download the provided [Makefile](/Ressources/Makefile) and move it to ``CATS_HOME``.
 You can also perform the changes done in this file, i.e.:
 
 - replacing ``;`` by ``&`` following Windows command structure
