@@ -6,8 +6,15 @@ Welcome to the CATS (Combinatorial Auction Test Suite) Setup Guide. This tutoria
 
 CATS offers a diverse range of distributions, including realistic, economically motivated domains and artificial distributions commonly referenced in academic literature.
 
-For detailed information about CATS and its capabilities, visit CATS website.
+For detailed information about CATS and its capabilities, visit [CATS website](https://www.cs.ubc.ca/~kevinlb/CATS/).
 
-Follow the setup instructions corresponding to your operating system for a seamless experience. Let's get started!
+Follow the setup instructions corresponding to your operating system for a seamless experience.
+This program is primarily designed for Linux, offering a more beginner-friendly environment.
+Whenever feasible, it's recommended to run CATS on Linux for optimal compatibility.
+Please note that the Windows tutorial has been written and tested on Windows 11.
+For Windows 10, the steps may vary slightly but should be very similar.
+
+Let's get started!
 
 - [Linux](/Setup-Linux.md)
+- [Windows (11)](/Setup-Windows.md)
