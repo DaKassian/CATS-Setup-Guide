@@ -43,6 +43,7 @@ Choose the option ``Complete package, except sources`` and follow the installer(
 If you installed ``bison`` or ``m4``, navigate to ``C:\Program Files (x86)\GnuWin32\bin`` and rename the ``bison.exe`` to ``bison_old.exe``.
 Download the modified Bison executable from [free.fr](http://marin.jb.free.fr/bison/) (At the bottom of the page) and replace ``bison.exe`` in the same folder.
 
+You can now proceed to step 0.1 and / or install git first.
 
 ##### Install ``git``
 
