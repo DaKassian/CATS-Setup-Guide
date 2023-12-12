@@ -100,7 +100,7 @@ Test the execution of the program with a random generation of test files:
 ```bash
 	./cats -d arbitrary -goods 5 -bids 10     
 ```
-If the output resembles the provided example, the setup was successful and you can continue with the [Output Explanation](/Output-Explanation.md)
+If the output resembles the provided example, the setup was successful.
 ```
 	Number of non-dominated bids: 10  Number of bidders: 12
 	CATS running 1 of 1....
@@ -134,3 +134,7 @@ If you encounter a `./cats: Permission denied error`, grant executable rights:
 	sudo chmod +x cats
 ```
 Retry the test.
+
+
+Henceforth, skip the compilation process and directly execute the last command using the provided shortcut.
+Refer to the paper linked on the [author's website](https://www.cs.ubc.ca/~kevinlb/CATS/) for the parameters required.

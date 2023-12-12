@@ -1,7 +1,13 @@
 # Setup in Windows (11)
 
 
+
 ### Step 0: Prerequisites
+
+Throughout this tutorial, there might be changes to file name extensions. 
+Ensure that the option ``Show File name extensions`` is enabled in File Explorer as shown below.
+You can disable it once the setup is successfully completed.
+![](Images/img-0.png)
 
 Before proceeding, ensure that the following tools are installed on your system. 
 Run the following commands in a terminal separately to check:
@@ -9,11 +15,10 @@ Run the following commands in a terminal separately to check:
 	gcc --version
 	make --version
 	bison --version
-	m4 --version
 	flex --version
 	git --version
 ```
-If any of these are missing, follow the next steps, otherwise proceed to [Step 1](#step-1-download-cats-from-github).
+If any of these are missing (is not recognized as command), follow the next steps, otherwise proceed to [Step 1](#step-1-download-cats-from-github).
 
 #### Step 0.1: Install the requirements
 
@@ -22,50 +27,58 @@ Depending on your output in the previous step, install the missing requirements:
 ##### Install ``gcc``
 
 Download the newest version of ``gcc`` from [WinLibs](https://winlibs.com/).
+![](Images/img-01-1.png)
 
-![](Images/img-1.png)
+Extract the downloaded ``.zip`` file to the home directory (Remove everything after ``C:\``).
+![](Images/img-01-2.png)
 
-Extract the downloaded ``.zip`` file to the home directory (Remove everything after C:).
-
-![](Images/img-2.png)
+You can now proceed to [Step 0.2](#step-02-update-path-variable) or install the other dependencies first.
 
 ##### Install ``make``, ``bison``, ``m4``, ``flex``
 
-Download the newest version of ``make``, ``bison``, ``m4``, and/or ``flex``  from "sourceforge.net":
+Download the newest version of ``make``, ``bison``, and/or ``flex``:
+For each, choose the option ``Complete package, except sources``, execute the downloaded files and follow the installer(s).
+![](Images/img-01-3.png)
 
 - [Make for Windows](https://gnuwin32.sourceforge.net/packages/make.htm)
 - [Bison for Windows](https://gnuwin32.sourceforge.net/packages/bison.htm)
 - [Flex for Windows](https://gnuwin32.sourceforge.net/packages/flex.htm)
-- [m4 for Windows](https://gnuwin32.sourceforge.net/packages/m4.htm)
 
-Choose the option ``Complete package, except sources`` and follow the installer(s).
-
-If you installed ``bison`` or ``m4``, navigate to ``C:\Program Files (x86)\GnuWin32\bin`` and rename the ``bison.exe`` to ``bison_old.exe``.
+If you installed ``bison``, navigate to ``C:\Program Files (x86)\GnuWin32\bin`` and rename the ``bison.exe`` to ``bison_old.exe``.
 Download the modified Bison executable from [free.fr](http://marin.jb.free.fr/bison/) (At the bottom of the page) and replace ``bison.exe`` in the same folder.
 
-You can now proceed to step 0.1 and / or install git first.
+You can now proceed to [Step 0.2](#step-02-update-path-variable) or install git first.
 
 ##### Install ``git``
 
 Git is recommended but not necessary. 
-Install it by downloading the "Standalone Installer" from [git-scm.com](https://git-scm.com/download/win). 
+Install it by downloading the ``Standalone Installer`` from [git-scm.com](https://git-scm.com/download/win). 
 If you choose not to use git, choose the second option in [Step 1](#step-1-download-cats-from-github).
 
-#### Step 0.1: Update ``PATH`` variable
+#### Step 0.2: Update ``PATH`` variable
 
-Open the system environment editor via Windows search:
+Open the system environment editor via Windows search (If your system language is not English, searching for "PATH" should work, too):
+![](Images/img-02-1.png)
 
-![](Images/img-3.png)
-
-Navigate to "Environment Variables..." and "Path".
+Navigate to ``Environment Variables...`` and ``Path``.
 Ensure that the following paths are specified:
 ```
 	C:\mingw64\bin
 	C:\Program Files (x86)\GnuWin32\bin
 	C:\Program Files (x86)\GnuWin32\lib
 ```
-![](Images/img-4.png)
+![](Images/img-02-2.png)
 
+Save the changes and close and reopen all terminals to load the update.
+
+To ensure correct installation and that the ``PATH`` is set properly, execute the following commands again:
+```bash
+	gcc --version
+	make --version
+	bison --version
+	flex --version
+	git --version
+```
 
 ### Step 1: Download CATS from GitHub
 
@@ -74,16 +87,16 @@ Open your terminal and run the following command:
 	git clone https://github.com/kevinlb1/CATS.git
 	cd CATS 
 ```
-If you chose not to use git, open [Github](https://github.com/kevinlb1/CATS), click on "Code" and "Download ZIP".
+If you chose not to use git, open [Github](https://github.com/kevinlb1/CATS), click on ``Code`` and ``Download ZIP``.
 
-![](Images/img-5.png)
+![](Images/img-1.png)
 
 Move the file to your desired installation folder and extract it.
 
 
 ### Step 2: Configure CATS for use in Windows
 
-Open the File Explorer, navigate to the "CATS" folder (per default in "C:\Users\your-username"), from now on called ``CATS_HOME``.
+Open the File Explorer, navigate to the "CATS" folder (per default in ``C:\Users\your-username``), from now on called ``CATS_HOME``.
 
 #### Step 2.1: Change the ``Makefile``
 
@@ -93,16 +106,13 @@ To achieve this, we demonstrate an alternative method that does not require a co
 By default, CATS uses IBM CPLEX, so we'll guide you through changing the configuration to use the ``LPSOLVE`` library instead.
 
 
-Rename the existing "Makefile" in ``CATS_HOME`` to "Makefile_old".
+Rename the existing ``Makefile`` in ``CATS_HOME`` to ``Makefile_old``.
 Download the provided [Makefile](/Ressources/Makefile) and move it to ``CATS_HOME``.
-You can also perform the changes done in this file, i.e.:
-
-- replacing ``;`` by ``&`` following Windows command structure
-- changing to use of ``LPSOLVE`` instead of ``IBM CPLEX``.
+Make sure that its name is not ``Makefile.txt`` but ``Makefile``.
 
 #### Step 2.2: Correct time conversion error
 
-To prevent an compilation error open ``BidSet.cpp`` in ``CATS_HOME`` with an text editor.
+To prevent an compilation error open ``BidSet.cpp`` in ``CATS_HOME`` with a text editor.
 Change line 560 from
 ```cpp
 	char* time_str = ctime(&time_buf);
@@ -130,7 +140,7 @@ and save again.
 
 #### Step 2.4: Prevent GCC library error
 
-Open the folder ``lp_solve_4.0`` in  ``CATS_HOME`` and change line 37 from:
+Open the folder ``lp_solve_4.0`` in  ``CATS_HOME`` and change line 37 from the ``Makefile``:
 ```cpp
 	LEXLIB= -lfl
 ```
@@ -143,9 +153,9 @@ to
 
 Open a terminal in ``CATS_HOME`` (Right Click &rarr; Open in Terminal) and execute:
 ```bash
-	make -i
+	make
 ```
-The following errors will ocur:
+The following error will ocur:
 ```
 	bison -y -d lp.y
 	mv y.tab.c lp.c
@@ -153,21 +163,26 @@ The following errors will ocur:
 	make (e=2): The system cannot find the file specified.
 ```
 
+Perform the renaming manually:
+```batch
+	move .\lp_solve_4.0\y.tab.c .\lp_solve_4.0\lp.c
+```
+
+Now, try the ``make`` command again and the next error will be:
+
 ```
 	flex -l lex.l
 	mv lex.yy.c lex.c
 	process_begin: CreateProcess(NULL, mv lex.yy.c lex.c, ...) failed.
 	make (e=2): The system cannot find the file specified.
 ```
-Perform the renamings manually:
+
+Again, perform the renaming manually:
 ```batch
-	move .\lp_solve_4.0\y.tab.c .\lp_solve_4.0\lp.c
 	move .\lp_solve_4.0\lex.yy.c .\lp_solve_4.0\lex.c
 ```
-Retry the ``make`` command without the flag ``-i``, which will now be successful. 
-```bash
-	make
-```
+
+Retry the ``make`` command, which will now be successful. 
 
 If there are still some errors, make sure you have installed all requirements mentioned in [Step 0](#step-0-prerequisites) or look at the [known problems](#known-problems).
 
@@ -176,10 +191,10 @@ If there are still some errors, make sure you have installed all requirements me
 
 Test the execution of the program with a random generation of test files by executing in a terminal:
 ```bash
-	./cats.exe -d arbitrary -goods 5 -bids 10     
+	.\\cats.exe -d arbitrary -goods 5 -bids 10     
 ```
 
-If the output resembles the provided example, the setup was successful and you can continue with the [Output Explanation](/Output-Explanation.md)
+If the output resembles the provided example, the setup was successful.
 ```
 	Number of non-dominated bids: 10  Number of bidders: 12
 	CATS running 1 of 1....
@@ -207,8 +222,8 @@ If the output resembles the provided example, the setup was successful and you c
 	Wrote CATS output file "0000.txt".
 ```
 
-
-
+Henceforth, skip the compilation process and directly execute the last command using the provided shortcut.
+Refer to the paper linked on the [author's website](https://www.cs.ubc.ca/~kevinlb/CATS/) for the parameters required.
 
 ### Known problems
 

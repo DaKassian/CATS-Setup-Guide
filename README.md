@@ -14,6 +14,9 @@ Whenever feasible, it's recommended to run CATS on Linux for optimal compatibili
 Please note that the Windows tutorial has been written and tested on Windows 11.
 For Windows 10, the steps may vary slightly but should be very similar.
 
+This tutorial guides you through the source code compilation, which may require some time during setup. 
+However, once compiled, generating and executing Combinatorial Auctions becomes a swift and straightforward process.
+
 Let's get started!
 
 - [Linux](/Setup-Linux.md)
