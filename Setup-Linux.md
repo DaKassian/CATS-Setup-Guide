@@ -4,9 +4,9 @@
 ### Step 0: Prerequisites
 
 This program relies on `gcc` to compile the C code. 
-Check if `gcc` is installed on your system by running:
+Check if `gcc` is installed on your system by running in a terminal:
 ```bash
-	gcc --version
+gcc --version
 ```
 If not installed, refer to
 [How to Install GCC Compiler on Linux?](https://www.geeksforgeeks.org/how-to-install-gcc-compiler-on-linux/)
@@ -15,22 +15,22 @@ for installation instructions.
 
 ### Step 1: Download CATS from GitHub
 
-Open your terminal and run the following command:
+Run the following command:
 ```bash
-	git clone https://github.com/kevinlb1/CATS.git
-	cd CATS 
+git clone https://github.com/kevinlb1/CATS.git
+cd CATS 
 ```
 
 ### Step 2: Test compiling the program
 
 Execute:
 ```bash
-	make
+make
 ```
 A new file ``cats`` should have been created.
 Use
 ```bash
-	ls
+ls
 ```
 to list all files. 
 If ``cats`` exists (not ``cats.exe``) the compilation was successful and you can continue with [Step 4](#step-4-test-the-execution-of-the-program).
@@ -46,12 +46,12 @@ There are two known problems which cause problems when compiling the program.
 
 The first one causes errors like:
 ```
-	error: macro "max" requires 2 arguments, but only 1 given
+error: macro "max" requires 2 arguments, but only 1 given
 ```
 The second one is identified via:
 ```
-	../featureCalc.h:5:10: fatal error: cplex.h: No such file or directory
-    5 | #include <cplex.h>
+../featureCalc.h:5:10: fatal error: cplex.h: No such file or directory
+5 | #include <cplex.h>
 ```
 
 #### Step 3.1: Fix double definition of Max
@@ -62,11 +62,11 @@ For a correct compilation, only one is needed.
 Open ``Param.cpp`` in a texteditor or IDE of your choice.
 For instance in NANO via:
 ```bash
-	nano Param.cpp
+nano Param.cpp
 ```
 Locate and comment out the line containing the double definition of `max` by adding `\\` before `#`.
 ```cpp
-	#define max(a,b) (a>b?a:b)
+#define max(a,b) (a>b?a:b)
 ```
 Save the changes and either repeat [Step 2](#step-2-test-compiling-the-program) or proceed with [Step 3.2](#step-32-compile-without-using-ibm-cplex) first.
 
@@ -82,7 +82,7 @@ By default, CATS uses IBM CPLEX, so we'll guide you through changing the configu
 Open ``Makefile`` in a texteditor or IDE of your choice.
 For instance in NANO via:
 ```bash
-	nano Makefile
+nano Makefile
 ```
 Make the following changes:
 
@@ -98,7 +98,7 @@ Save the changes and retry [Step 2](#step-2-test-compiling-the-program).
 
 Test the execution of the program with a random generation of test files:
 ```bash
-	./cats -d arbitrary -goods 5 -bids 10     
+./cats -d arbitrary -goods 5 -bids 10     
 ```
 If the output resembles the provided example, the setup was successful.
 ```
@@ -131,7 +131,7 @@ If the output resembles the provided example, the setup was successful.
 
 If you encounter a `./cats: Permission denied error`, grant executable rights:
 ```bash
-	sudo chmod +x cats
+sudo chmod +x cats
 ```
 Retry the test.
 
